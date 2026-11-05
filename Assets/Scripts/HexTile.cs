@@ -103,12 +103,14 @@ public class HexTile : MonoBehaviour
         ApplyMaterials();
     }
 
-    public TileType GetTerrainInWorldDirection(int direction)
+    // Возвращает индекс сегмента, обращённого
+    // к указанному мировому направлению.
+    public int GetSegmentIndexInWorldDirection(int direction)
     {
         if (direction < 0 || direction >= SegmentCount)
         {
             Debug.LogError("Invalid world direction!");
-            return TileType.Grass;
+            return -1;
         }
 
         float worldAngle = worldDirectionAngles[direction];
@@ -121,6 +123,17 @@ public class HexTile : MonoBehaviour
 
         segmentIndex = (segmentIndex % SegmentCount
             + SegmentCount) % SegmentCount;
+
+        return segmentIndex;
+    }
+
+    public TileType GetTerrainInWorldDirection(int direction)
+    {
+        int segmentIndex =
+            GetSegmentIndexInWorldDirection(direction);
+
+        if (segmentIndex < 0)
+            return TileType.Grass;
 
         return terrainSegments[segmentIndex];
     }
