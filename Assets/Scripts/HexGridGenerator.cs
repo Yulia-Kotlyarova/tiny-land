@@ -25,6 +25,10 @@ public class HexGridGenerator : MonoBehaviour
 
     public bool IsGridEmpty => occupiedCells.Count == 0;
 
+    // Только чтение зарегистрированных тайлов.
+    public IReadOnlyDictionary<Vector2Int, GameObject> OccupiedCells =>
+        occupiedCells;
+
     public float GetTileRadius()
     {
         return tileRadius;
@@ -33,7 +37,6 @@ public class HexGridGenerator : MonoBehaviour
     public Vector3 GetWorldPosition(Vector2Int coordinates)
     {
         float x = tileRadius * 1.5f * coordinates.x;
-
         float z = tileRadius * Mathf.Sqrt(3f)
             * (coordinates.y + coordinates.x * 0.5f);
 
@@ -84,7 +87,6 @@ public class HexGridGenerator : MonoBehaviour
         }
 
         occupiedCells.Add(coordinates, tile);
-
         Debug.Log($"Tile registered at {coordinates}");
 
         return true;

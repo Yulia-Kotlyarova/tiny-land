@@ -463,6 +463,17 @@ public class HexPlacementController : MonoBehaviour
             return;
         }
 
+        BiomeManager biomeManager = GetComponent<BiomeManager>();
+
+        if (biomeManager != null)
+        {
+            biomeManager.RecalculateAllBiomes();
+        }
+        else
+        {
+            Debug.LogError("BiomeManager not found on GridManager!");
+        }
+
         Debug.Log($"New tile placed at {previewCoordinates}");
 
         ProcessPlacementRewards();

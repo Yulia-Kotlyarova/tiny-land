@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 1737623211}
   - component: {fileID: 1737623212}
   - component: {fileID: 1737623213}
+  - component: {fileID: 1737623214}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -465,8 +466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff44b116180d4e9fa0b80299d8f3959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexGridGenerator
-  hexPrefab: {fileID: 150003880605849038, guid: 13051369f6ae840f583fd501ec96c21d, type: 3}
-  gridRadius: 2
   tileRadius: 1
 --- !u!4 &1737623209
 Transform:
@@ -545,6 +544,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexTileGenerator
   deckSize: 50
+--- !u!114 &1737623214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737623207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc7c4892a0f741a1b1ec45d418a5051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BiomeManager
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
